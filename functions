@@ -1,0 +1,6 @@
+# Adding word based severity ratings when numbers are used
+=IF(K2>=9,"Critical",IF(K2>=7,"High",IF(K2>=3,"Medium","Low")))  # Used for 1-10 scales like CVSS
+=IF(K2>=4,"Critical",IF(K2>=3,"High",IF(K2>=2,"Medium","Low")))  # Used for whole number rating scales
+
+# Adds simple vendor software to vulnerability exports for easy correllation:
+=IF(ISNUMBER(SEARCH("Adobe",F9)),"Adobe",IF(ISNUMBER(SEARCH("Java",F9)),"Java",IF(ISNUMBER(SEARCH("wireshark",F9)),"wireshark",IF(ISNUMBER(SEARCH("Firefox",F9)),"Firefox",IF(ISNUMBER(SEARCH("chrome",F9)),"Google Chrome","Other")))))
